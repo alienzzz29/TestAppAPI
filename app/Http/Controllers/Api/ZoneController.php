@@ -86,7 +86,12 @@ class ZoneController extends Controller
         }
 
 
-        $zone->save();
+        try {
+            //code...
+            $zone->save();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
         return $zone;
     }

@@ -89,8 +89,14 @@ class AddressController extends Controller
             $address->barangay_id = $request->barangay_id;
         }
 
+        try {
+            //code...
+            $address->save();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
-        $address->save();
+        
 
         return $address;
     }

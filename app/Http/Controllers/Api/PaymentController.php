@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Barangay;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreBarangayRequest;
-use App\Http\Requests\UpdateBarangayRequest;
+use App\Models\Payment;
+use App\Http\Requests\StorePaymentRequest;
+use App\Http\Requests\UpdatePaymentRequest;
 
-class BarangayController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class BarangayController extends Controller
     public function index()
     {
         //
-        return Barangay::all();
+        return Payment::all();
     }
 
     /**
@@ -33,34 +33,34 @@ class BarangayController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBarangayRequest  $request
+     * @param  \App\Http\Requests\StorePaymentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBarangayRequest $request)
+    public function store(StorePaymentRequest $request)
     {
         //
-        return Barangay::create($request->all());
+        return Payment::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Barangay  $barangay
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
-        return Barangay::find($id);
+        return Payment::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Barangay  $barangay
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barangay $barangay)
+    public function edit(Payment $payment)
     {
         //
     }
@@ -68,41 +68,53 @@ class BarangayController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBarangayRequest  $request
-     * @param  \App\Models\Barangay  $barangay
+     * @param  \App\Http\Requests\UpdatePaymentRequest  $request
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBarangayRequest $request, $id)
+    public function update(UpdatePaymentRequest $request, $id)
     {
         //
-        $barangay = Barangay::find($id);
+        $payment = Payment::find($id);
 
         if(count($request->all()) <= 0){
             return "Nothing to update";
         }
 
-        if(isset($request->name)){
-            $barangay->name = $request->name;
+        if(isset($request->or_number)){
+            $payment->or_number = $request->or_number;
+        }
+
+        if(isset($request->payment)){
+            $payment->payment = $request->payment;
+        }
+
+        // if(isset($request->applicant_id)){
+        //     $payment->applicant_id = $request->applicant_id;
+        // }
+
+        if(isset($request->user_id)){
+            $payment->user_id = $request->user_id;
         }
 
         try {
             //code...
-            $barangay->save();
+            $payment->save();
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
         
 
-        return $barangay;
+        return $payment;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Barangay  $barangay
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barangay $barangay)
+    public function destroy(Payment $payment)
     {
         //
     }

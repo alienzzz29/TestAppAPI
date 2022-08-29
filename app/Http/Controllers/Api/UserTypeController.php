@@ -89,7 +89,13 @@ class UserTypeController extends Controller
             $userType->toQuery()->update(array("guard_name" => $request->guard_name));
         }
 
-        return $userType->fresh();
+        try {
+            //code...
+            return $userType->fresh();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
+        
     }
 
     /**

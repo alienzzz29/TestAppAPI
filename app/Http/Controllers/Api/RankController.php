@@ -85,8 +85,12 @@ class RankController extends Controller
              $rank->name = $request->name;
          }
  
- 
-         $rank->save();
+         try {
+            //code...
+            $rank->save();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
  
          return $rank;
     }

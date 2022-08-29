@@ -93,7 +93,13 @@ class CommunityTaxCertificateController extends Controller
             $ctc->ctc_placeissue = $request->ctc_placeissue;
         }
 
-        $ctc->save();
+        try {
+            //code...
+            $ctc->save();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
+       
 
         return $ctc;
     }

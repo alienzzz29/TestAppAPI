@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AddressController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BarangayController;
 use App\Http\Controllers\Api\CommunityTaxCertificateController;
+use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\PoliceClearanceCertificateController;
 use App\Http\Controllers\Api\PositionController;
 use App\Http\Controllers\Api\PurposeController;
@@ -11,6 +12,9 @@ use App\Http\Controllers\Api\RankController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UserTypeController;
 use App\Http\Controllers\Api\ZoneController;
+use App\Http\Controllers\Api\ApplicantController;
+use App\Http\Controllers\Api\FindingsController;
+use App\Http\Controllers\Api\PoliceClearanceCertificateDetailsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -95,3 +99,27 @@ Route::get('/ctc/{id}', [CommunityTaxCertificateController::class, 'show']);
 Route::get('/ctc', [CommunityTaxCertificateController::class, 'index']);
 Route::post('/ctc', [CommunityTaxCertificateController::class, 'store']);
 Route::put('/ctc/{id}', [CommunityTaxCertificateController::class, 'update']);
+
+//Payment
+Route::get('/payments/{id}', [PaymentController::class, 'show']);
+Route::get('/payments', [PaymentController::class, 'index']);
+Route::post('/payments', [PaymentController::class, 'store']);
+Route::put('/payments/{id}', [PaymentController::class, 'update']);
+
+//Applicant
+Route::get('/applicants/{id}', [ApplicantController::class, 'show']);
+Route::get('/applicants', [ApplicantController::class, 'index']);
+Route::post('/applicants', [ApplicantController::class, 'store']);
+Route::put('/applicants/{id}', [ApplicantController::class, 'update']);
+
+//Findings
+Route::get('/findings/{id}', [FindingsController::class, 'show']);
+Route::get('/findings', [FindingsController::class, 'index']);
+Route::post('/findings', [FindingsController::class, 'store']);
+Route::put('/findings/{id}', [FindingsController::class, 'update']);
+
+//Police Clearance Certificate Details
+Route::get('/pccd/{id}', [PoliceClearanceCertificateDetailsController::class, 'show']);
+Route::get('/pccd', [PoliceClearanceCertificateDetailsController::class, 'index']);
+Route::post('/pccd', [PoliceClearanceCertificateDetailsController::class, 'store']);
+Route::put('/pccd/{id}', [PoliceClearanceCertificateDetailsController::class, 'update']);

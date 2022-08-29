@@ -57,7 +57,15 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
         }
 
-        $user->save();
+        
+
+        try {
+            //code...
+            $user->save();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
+        
 
         return $user;
     }

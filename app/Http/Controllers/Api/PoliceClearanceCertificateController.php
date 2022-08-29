@@ -90,7 +90,12 @@ class PoliceClearanceCertificateController extends Controller
         }
 
 
-        $pcc->save();
+        try {
+            //code...
+            $pcc->save();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
         return $pcc;
     }

@@ -86,7 +86,12 @@ class PositionController extends Controller
         }
 
 
-        $position->save();
+        try {
+            //code...
+            $position->save();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
         return $position;
     }

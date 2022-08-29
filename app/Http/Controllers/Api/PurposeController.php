@@ -86,7 +86,13 @@ class PurposeController extends Controller
         }
 
 
-        $purpose->save();
+        try {
+            //code...
+            
+            $purpose->save();
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
 
         return $purpose;
     }

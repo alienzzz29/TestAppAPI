@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Barangay;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreBarangayRequest;
-use App\Http\Requests\UpdateBarangayRequest;
+use App\Models\Findings;
+use App\Http\Requests\StoreFindingsRequest;
+use App\Http\Requests\UpdateFindingsRequest;
 
-class BarangayController extends Controller
+class FindingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class BarangayController extends Controller
     public function index()
     {
         //
-        return Barangay::all();
+        return Findings::all();
     }
 
     /**
@@ -33,34 +33,34 @@ class BarangayController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBarangayRequest  $request
+     * @param  \App\Http\Requests\StoreFindingsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBarangayRequest $request)
+    public function store(StoreFindingsRequest $request)
     {
         //
-        return Barangay::create($request->all());
+        return Findings::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Barangay  $barangay
+     * @param  \App\Models\Findings  $findings
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
-        return Barangay::find($id);
+        return Findings::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Barangay  $barangay
+     * @param  \App\Models\Findings  $findings
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barangay $barangay)
+    public function edit(Findings $findings)
     {
         //
     }
@@ -68,41 +68,50 @@ class BarangayController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBarangayRequest  $request
-     * @param  \App\Models\Barangay  $barangay
+     * @param  \App\Http\Requests\UpdateFindingsRequest  $request
+     * @param  \App\Models\Findings  $findings
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBarangayRequest $request, $id)
+    public function update(UpdateFindingsRequest $request, $id)
     {
         //
-        $barangay = Barangay::find($id);
+        $findings = Findings::find($id);
 
         if(count($request->all()) <= 0){
             return "Nothing to update";
         }
 
-        if(isset($request->name)){
-            $barangay->name = $request->name;
+        if(isset($request->findings_remarks)){
+            $findings->findings_remarks = $request->findings_remarks;
         }
 
+        if(isset($request->findings_signature)){
+            $findings->findings_signature = $request->findings_signature;
+        }
+
+        if(isset($request->user_id)){
+            $findings->user_id = $request->user_id;
+        }
+
+        
         try {
             //code...
-            $barangay->save();
+            $findings->save();
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
         
 
-        return $barangay;
+        return $findings;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Barangay  $barangay
+     * @param  \App\Models\Findings  $findings
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barangay $barangay)
+    public function destroy(Findings $findings)
     {
         //
     }
