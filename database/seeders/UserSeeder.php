@@ -22,8 +22,7 @@ class UserSeeder extends Seeder
         $admin = Role::create(['guard_name' => 'api','name' => 'admin']);
         $clerk = Role::create(['guard_name' => 'api','name' => 'clerk']);
         $cashier = Role::create(['guard_name' => 'api','name' => 'cashier']);
-        $police_officer = Role::create(['guard_name' => 'api','name' => 'police officer']);
-
+        
         User::create([
                 'first_name' => '',
                 'middle_name' => '',

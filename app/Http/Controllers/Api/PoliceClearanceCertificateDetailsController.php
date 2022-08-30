@@ -98,11 +98,14 @@ class PoliceClearanceCertificateDetailsController extends Controller
         if(isset($request->ctc_id)){
             $pccd->ctc_id = $request->ctc_id;
         }
-        if(isset($request->user_id)){
-            $pccd->user_id = $request->user_id;
+        if(isset($request->police_id)){
+            $pccd->police_id = $request->police_id;
         }
         if(isset($request->payment_id)){
             $pccd->payment_id = $request->payment_id;
+        }
+        if(isset($request->oic_id)){
+            $pccd->oic_id = $request->oic_id;
         }
         if(isset($request->status)){
             $pccd->status = $request->status;
@@ -125,8 +128,10 @@ class PoliceClearanceCertificateDetailsController extends Controller
      * @param  \App\Models\PoliceClearanceCertificateDetails  $policeClearanceCertificateDetails
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PoliceClearanceCertificateDetails $policeClearanceCertificateDetails)
+    public function destroy($id)
     {
         //
+        PoliceClearanceCertificateDetails::find($id)->delete();
+        return "Police Clearance Certificate Detail Successfully Deleted";
     }
 }

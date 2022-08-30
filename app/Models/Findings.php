@@ -12,8 +12,6 @@ class Findings extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'is_cleared',
-        'findings_remarks',
-        'user_id'
+        'cr_id',
     ];
 }

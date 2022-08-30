@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Findings;
-use App\Http\Requests\StoreFindingsRequest;
-use App\Http\Requests\UpdateFindingsRequest;
+use App\Models\OIC;
+use App\Http\Requests\StoreOICRequest;
+use App\Http\Requests\UpdateOICRequest;
 
-class FindingsController extends Controller
+class OICController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class FindingsController extends Controller
     public function index()
     {
         //
-        return Findings::all();
+        return OIC::all();
     }
 
     /**
@@ -33,81 +33,78 @@ class FindingsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreFindingsRequest  $request
+     * @param  \App\Http\Requests\StoreOICRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFindingsRequest $request)
+    public function store(StoreOICRequest $request)
     {
         //
-        return Findings::create($request->all());
+        return OIC::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Findings  $findings
+     * @param  \App\Models\OIC  $oIC
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
-        return Findings::find($id);
+        return OIC::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Findings  $findings
+     * @param  \App\Models\OIC  $oIC
      * @return \Illuminate\Http\Response
      */
-    public function edit(Findings $findings)
+    public function edit(OIC $oIC)
     {
         //
-
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateFindingsRequest  $request
-     * @param  \App\Models\Findings  $findings
+     * @param  \App\Http\Requests\UpdateOICRequest  $request
+     * @param  \App\Models\OIC  $oIC
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFindingsRequest $request, $id)
+    public function update(UpdateOICRequest $request, $id)
     {
-        //
-        $findings = Findings::find($id);
+        $oic = OIC::find($id);
 
         if(count($request->all()) <= 0){
             return "Nothing to update";
         }
 
-        if(isset($request->cr_id)){
-            $findings->cr_id = $request->cr_id;
+        if(isset($request->police_id)){
+            $oic->police_id = $request->police_id;
         }
-
         
         try {
             //code...
-            $findings->save();
+            $oic->save();
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
         
 
-        return $findings;
+        return $oic;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Findings  $findings
+     * @param  \App\Models\OIC  $oIC
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        Findings::find($id)->delete();
-        return "Findings Successfully Deleted";
+        OIC::find($id)->delete();
+        return "OIC Successfully Deleted";
     }
 }

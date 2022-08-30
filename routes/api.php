@@ -13,8 +13,11 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UserTypeController;
 use App\Http\Controllers\Api\ZoneController;
 use App\Http\Controllers\Api\ApplicantController;
+use App\Http\Controllers\Api\CriminalRecordsController;
 use App\Http\Controllers\Api\FindingsController;
+use App\Http\Controllers\Api\OICController;
 use App\Http\Controllers\Api\PoliceClearanceCertificateDetailsController;
+use App\Http\Controllers\Api\PoliceOfficerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -123,3 +126,22 @@ Route::get('/pccd/{id}', [PoliceClearanceCertificateDetailsController::class, 's
 Route::get('/pccd', [PoliceClearanceCertificateDetailsController::class, 'index']);
 Route::post('/pccd', [PoliceClearanceCertificateDetailsController::class, 'store']);
 Route::put('/pccd/{id}', [PoliceClearanceCertificateDetailsController::class, 'update']);
+Route::delete('/pccd/{id}', [PoliceClearanceCertificateDetailsController::class, 'destroy']);
+//OIC
+Route::get('/oic/{id}', [OICController::class, 'show']);
+Route::get('/oic', [OICController::class, 'index']);
+Route::post('/oic', [OICController::class, 'store']);
+Route::put('/oic/{id}', [OICController::class, 'update']);
+Route::delete('/oic/{id}', [OICController::class, 'destroy']);
+//Police Officer
+Route::get('/police/{id}', [PoliceOfficerController::class, 'show']);
+Route::get('/police', [PoliceOfficerController::class, 'index']);
+Route::post('/police', [PoliceOfficerController::class, 'store']);
+Route::put('/police/{id}', [PoliceOfficerController::class, 'update']);
+Route::delete('/police/{id}', [PoliceOfficerController::class, 'destroy']);
+//Criminal Records
+Route::get('/cr/{id}', [CriminalRecordsController::class, 'show']);
+Route::get('/cr', [CriminalRecordsController::class, 'index']);
+Route::post('/cr', [CriminalRecordsController::class, 'store']);
+Route::put('/cr/{id}', [CriminalRecordsController::class, 'update']);
+Route::delete('/cr/{id}', [CriminalRecordsController::class, 'destroy']);
