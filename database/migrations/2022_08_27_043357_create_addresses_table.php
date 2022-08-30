@@ -17,6 +17,7 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->bigInteger('zone_id')->unsigned();
             $table->bigInteger('barangay_id')->unsigned();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
         });
     }

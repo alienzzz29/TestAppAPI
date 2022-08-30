@@ -158,8 +158,10 @@ class ApplicantController extends Controller
      * @param  \App\Models\Applicant  $applicant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Applicant $applicant)
+    public function destroy($id)
     {
         //
+        Applicant::find($id)->delete();
+        return "Applicant Successfully Deleted";
     }
 }

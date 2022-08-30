@@ -17,28 +17,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
-        //
-        // DB::table('users')->insert([
-        //     'first_name' => '',
-        //     'middle_name' => '',
-        //     'last_name' => '',
-        //     'contact_no' => '',
-        //     'username' => 'Admin',
-        //     'password' => bcrypt('Admin'),
-        // ]);
 
-        // User::create([
-        //     'name' => 'Mouise Bashir',
-        //     'country'=>'undefined',
-        //     'email' => 'Bashir@admin.com',
-        //     'email_verified_at' => now(),
-        //     'password' => Hash::make('Bashir123'),
-        //     'remember_token' => Str::random(60),
-        // ])->assignRole('admin'); // here add your role 
 
         $admin = Role::create(['guard_name' => 'api','name' => 'admin']);
         $clerk = Role::create(['guard_name' => 'api','name' => 'clerk']);
         $cashier = Role::create(['guard_name' => 'api','name' => 'cashier']);
+        $police_officer = Role::create(['guard_name' => 'api','name' => 'police officer']);
 
         User::create([
                 'first_name' => '',

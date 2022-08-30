@@ -102,8 +102,9 @@ class ZoneController extends Controller
      * @param  \App\Models\Zone  $zone
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Zone $zone)
+    public function destroy($id)
     {
-        //
+        Zone::find($id)->delete();
+        return "Zone Successfully Deleted";
     }
 }

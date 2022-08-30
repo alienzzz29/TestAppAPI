@@ -15,10 +15,11 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('or_number');
+            $table->string('or_number');
             $table->decimal('payment', 7, 2);
             // $table->bigInteger('applicant_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
         });
     }

@@ -106,8 +106,10 @@ class PoliceClearanceCertificateController extends Controller
      * @param  \App\Models\PoliceClearanceCertificate  $policeClearanceCertificate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PoliceClearanceCertificate $policeClearanceCertificate)
+    public function destroy($id)
     {
         //
+        PoliceClearanceCertificate::find($id)->delete();
+        return "Police Clearance Certificate Successfully Deleted";
     }
 }

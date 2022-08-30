@@ -103,8 +103,10 @@ class PurposeController extends Controller
      * @param  \App\Models\Purpose  $purpose
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Purpose $purpose)
+    public function destroy($id)
     {
         //
+        Purpose::find($id)->delete();
+        return "Purpose Successfully Deleted";
     }
 }

@@ -104,8 +104,10 @@ class UserTypeController extends Controller
      * @param  \App\Models\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $userType)
-    {
-        //
-    }
+    // public function destroy($id)
+    // {
+    //     //
+    //     Role::where('id', $id)->delete();
+    //     return "UserType Successfully Deleted";
+    // }
 }

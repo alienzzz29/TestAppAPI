@@ -17,6 +17,7 @@ class CreatePoliceClearanceCertificatesTable extends Migration
             $table->id();
             $table->string('pcc_number');
             $table->dateTime('issued_date');
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
         });
     }

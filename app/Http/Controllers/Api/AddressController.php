@@ -107,8 +107,10 @@ class AddressController extends Controller
      * @param  \App\Models\Address  $address
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Address $address)
+    public function destroy($id)
     {
         //
+        Address::find($id)->delete();
+        return "Address Successfully Deleted";
     }
 }

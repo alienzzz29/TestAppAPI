@@ -81,12 +81,12 @@ class FindingsController extends Controller
             return "Nothing to update";
         }
 
-        if(isset($request->findings_remarks)){
-            $findings->findings_remarks = $request->findings_remarks;
+        if(isset($request->is_cleared)){
+            $findings->is_cleared = $request->is_cleared;
         }
 
-        if(isset($request->findings_signature)){
-            $findings->findings_signature = $request->findings_signature;
+        if(isset($request->findings_remarks)){
+            $findings->findings_remarks = $request->findings_remarks;
         }
 
         if(isset($request->user_id)){
@@ -111,8 +111,10 @@ class FindingsController extends Controller
      * @param  \App\Models\Findings  $findings
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Findings $findings)
+    public function destroy($id)
     {
         //
+        Findings::find($id)->delete();
+        return "Findings Successfully Deleted";
     }
 }

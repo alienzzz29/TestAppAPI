@@ -18,6 +18,7 @@ class CreateCommunityTaxCertificatesTable extends Migration
             $table->string('ctc_number');
             $table->dateTime('ctc_dateissue');
             $table->string('ctc_placeissue');
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
         });
     }

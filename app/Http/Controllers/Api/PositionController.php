@@ -102,8 +102,10 @@ class PositionController extends Controller
      * @param  \App\Models\Position  $position
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Position $position)
+    public function destroy($id)
     {
         //
+        Position::find($id)->delete();
+        return "Position Successfully Deleted";
     }
 }

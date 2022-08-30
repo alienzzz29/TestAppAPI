@@ -109,8 +109,10 @@ class CommunityTaxCertificateController extends Controller
      * @param  \App\Models\CommunityTaxCertificate  $communityTaxCertificate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CommunityTaxCertificate $communityTaxCertificate)
+    public function destroy($id)
     {
         //
+        CommunityTaxCertificate::find($id)->delete();
+        return "Community Tax Certificate Successfully Deleted";
     }
 }

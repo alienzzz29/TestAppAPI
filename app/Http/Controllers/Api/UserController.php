@@ -25,7 +25,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        return User::find($id);;
+        return User::find($id);
     }
 
     public function update(UpdateUserRequest $request, $id)
@@ -70,4 +70,10 @@ class UserController extends Controller
         return $user;
     }
 
+    public function destroy($id)
+    {
+        //
+        User::find($id)->delete();
+        return "User Successfully Deleted";
+    }
 }

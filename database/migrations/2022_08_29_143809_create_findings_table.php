@@ -15,9 +15,10 @@ class CreateFindingsTable extends Migration
     {
         Schema::create('findings', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_cleared');
             $table->string('findings_remarks');
-            $table->string('findings_signature');
             $table->bigInteger('user_id')->unsigned();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
         });
     }

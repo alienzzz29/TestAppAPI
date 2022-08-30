@@ -102,8 +102,9 @@ class BarangayController extends Controller
      * @param  \App\Models\Barangay  $barangay
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barangay $barangay)
+    public function destroy($id)
     {
-        //
+        Barangay::find($id)->delete();
+        return "Barangay Successfully Deleted";
     }
 }

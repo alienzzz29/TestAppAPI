@@ -101,8 +101,10 @@ class RankController extends Controller
      * @param  \App\Models\Rank  $rank
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rank $rank)
+    public function destroy($id)
     {
         //
+        Rank::find($id)->delete();
+        return "Rank Successfully Deleted";
     }
 }
