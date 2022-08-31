@@ -14,7 +14,11 @@ class Payment extends Model
     protected $fillable = [
         'or_number',
         'payment',
-        // 'applicant_id',
         'user_id'
     ];
+
+    public function pccds()
+    {
+        return $this->hasMany(PoliceClearanceCertificateDetails::class);
+    }
 }

@@ -15,11 +15,46 @@ class PoliceClearanceCertificateDetails extends Model
         'applicant_id',
         'pcc_id',
         'purpose_id',
-        'findings_id',
         'ctc_id',
         'police_id',
         'payment_id',
         'oic_id',
         'status'
     ];
+
+    public function pcc()
+    {
+        return $this->belongsTo(PoliceClearanceCertificate::class);
+    }
+
+    public function applicant()
+    {
+        return $this->belongsTo(Applicant::class);
+    }
+
+    public function purpose()
+    {
+        return $this->belongsTo(Purpose::class);
+    }
+
+    public function ctc()
+    {
+        return $this->belongsTo(CommunityTaxCertificate::class);
+    }
+
+    public function policeOfficer()
+    {
+        return $this->belongsTo(PoliceOfficer::class);
+    }
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
+
+    public function oic()
+    {
+        return $this->belongsTo(OIC::class);
+    }
+
 }

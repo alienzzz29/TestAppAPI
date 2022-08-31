@@ -62,4 +62,6 @@ class User extends Authenticatable
 
         return new NewAccessToken($token, $token->getKey().'|'.$plainTextToken);
     }
+
+    
 }

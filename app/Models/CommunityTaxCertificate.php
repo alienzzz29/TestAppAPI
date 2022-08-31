@@ -16,4 +16,9 @@ class CommunityTaxCertificate extends Model
         'ctc_dateissue',
         'ctc_placeissue',
     ];
+
+    public function pccds()
+    {
+        return $this->hasMany(PoliceClearanceCertificateDetails::class);
+    }
 }

@@ -18,6 +18,7 @@ class CreateCriminalRecordsTable extends Migration
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
+            $table->string('date_of_birth');
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
         });

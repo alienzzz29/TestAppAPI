@@ -15,6 +15,7 @@ class CreateFindingsTable extends Migration
     {
         Schema::create('findings', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('pcc_id')->unsigned();
             $table->bigInteger('cr_id')->unsigned();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();

@@ -82,6 +82,10 @@ class FindingsController extends Controller
             return "Nothing to update";
         }
 
+        if(isset($request->pcc_id)){
+            $findings->pcc_id = $request->pcc_id;
+        }
+
         if(isset($request->cr_id)){
             $findings->cr_id = $request->cr_id;
         }

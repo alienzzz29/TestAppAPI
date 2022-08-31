@@ -12,6 +12,17 @@ class Findings extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'cr_id',
+        'pcc_id',
+        'cr_id'
     ];
+
+    public function pcc()
+    {
+        return $this->belongsTo(PoliceClearanceCertificate::class);
+    }
+
+    public function criminalRecords()
+    {
+        return $this->belongsTo(CriminalRecords::class);
+    }
 }

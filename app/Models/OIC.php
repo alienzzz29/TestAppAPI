@@ -14,4 +14,14 @@ class OIC extends Model
     protected $fillable = [
         'police_id'
     ];
+
+    public function policeOfficer()
+    {
+        return $this->belongsTo(PoliceOfficer::class);
+    }
+
+    public function pccds()
+    {
+        return $this->hasMany(PoliceClearanceCertificateDetails::class);
+    }
 }

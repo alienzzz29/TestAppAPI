@@ -28,4 +28,14 @@ class Applicant extends Model
         'applicant_thumb',
         'address_id'
     ];
+
+    public function pccds()
+    {
+        return $this->hasMany(PoliceClearanceCertificateDetails::class);
+    }
+    
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
 }

@@ -20,4 +20,14 @@ class PoliceClearanceCertificate extends Model
     // {
     //     return $this->hasMany(PoliceClearanceCertificateDetails::class);
     // }
+
+    public function pccds()
+    {
+        return $this->hasMany(PoliceClearanceCertificateDetails::class);
+    }
+
+    public function findings()
+    {
+        return $this->hasMany(Findings::class);
+    }
 }

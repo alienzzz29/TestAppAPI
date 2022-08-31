@@ -21,4 +21,9 @@ class Address extends Model
     {
         return $this->belongsTo(Barangay::class);
     }
+
+    public function applicants()
+    {
+        return $this->hasMany(Applicant::class);
+    }
 }

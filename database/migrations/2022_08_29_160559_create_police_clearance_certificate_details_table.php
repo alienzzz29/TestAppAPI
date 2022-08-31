@@ -18,7 +18,6 @@ class CreatePoliceClearanceCertificateDetailsTable extends Migration
             $table->bigInteger('pcc_id')->unsigned();
             $table->bigInteger('applicant_id')->unsigned();
             $table->bigInteger('purpose_id')->unsigned();
-            $table->bigInteger('findings_id')->unsigned();
             $table->bigInteger('ctc_id')->unsigned();
             $table->bigInteger('police_id')->unsigned();
             $table->bigInteger('oic_id')->unsigned();

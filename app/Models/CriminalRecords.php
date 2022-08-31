@@ -14,6 +14,12 @@ class CriminalRecords extends Model
     protected $fillable = [
         'first_name',
         'middle_name',
-        'last_name'
+        'last_name',
+        'date_of_birth'
     ];
+    
+    public function findings()
+    {
+        return $this->hasMany(Findings::class);
+    }
 }

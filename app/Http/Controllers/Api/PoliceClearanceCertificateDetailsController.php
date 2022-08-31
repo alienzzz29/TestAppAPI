@@ -92,9 +92,6 @@ class PoliceClearanceCertificateDetailsController extends Controller
         if(isset($request->purpose_id)){
             $pccd->purpose_id = $request->purpose_id;
         }
-        if(isset($request->findings_id)){
-            $pccd->findings_id = $request->findings_id;
-        }
         if(isset($request->ctc_id)){
             $pccd->ctc_id = $request->ctc_id;
         }

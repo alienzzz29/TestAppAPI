@@ -20,4 +20,22 @@ class PoliceOfficer extends Model
         'rank_id',
         'position_id'
     ];
+
+    public function pccds()
+    {
+        return $this->hasMany(PoliceClearanceCertificateDetails::class);
+    }
+    
+    public function rank()
+    {
+        return $this->belongsTo(Rank::class);
+    }
+    public function position()
+    {
+        return $this->belongsTo(position::class);
+    }
+    public function oic()
+    {
+        return $this->hasMany(OIC::class);
+    }
 }

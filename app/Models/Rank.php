@@ -14,4 +14,9 @@ class Rank extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function policeOfficers()
+    {
+        return $this->hasMany(PoliceOfficer::class);
+    }
 }

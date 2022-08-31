@@ -14,4 +14,9 @@ class Purpose extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function pccds()
+    {
+        return $this->hasMany(PoliceClearanceCertificateDetails::class);
+    }
 }
