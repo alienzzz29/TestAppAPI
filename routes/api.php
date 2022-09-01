@@ -13,11 +13,15 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UserTypeController;
 use App\Http\Controllers\Api\ZoneController;
 use App\Http\Controllers\Api\ApplicantController;
+use App\Http\Controllers\Api\ApplicantDetailsController;
+use App\Http\Controllers\Api\CrimeOffenseController;
 use App\Http\Controllers\Api\CriminalRecordsController;
+use App\Http\Controllers\Api\CriminalRecordsDetailsController;
 use App\Http\Controllers\Api\FindingsController;
 use App\Http\Controllers\Api\OICController;
 use App\Http\Controllers\Api\PoliceClearanceCertificateDetailsController;
 use App\Http\Controllers\Api\PoliceOfficerController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -145,3 +149,21 @@ Route::get('/cr', [CriminalRecordsController::class, 'index']);
 Route::post('/cr', [CriminalRecordsController::class, 'store']);
 Route::put('/cr/{id}', [CriminalRecordsController::class, 'update']);
 Route::delete('/cr/{id}', [CriminalRecordsController::class, 'destroy']);
+//Applicant Details
+Route::get('/applicant-details/{id}', [ApplicantDetailsController::class, 'show']);
+Route::get('/applicant-details', [ApplicantDetailsController::class, 'index']);
+Route::post('/applicant-details', [ApplicantDetailsController::class, 'store']);
+Route::put('/applicant-details/{id}', [ApplicantDetailsController::class, 'update']);
+Route::delete('/applicant-details/{id}', [ApplicantDetailsController::class, 'destroy']);
+//Criminal Records Details
+Route::get('/crd/{id}', [CriminalRecordsDetailsController::class, 'show']);
+Route::get('/crd', [CriminalRecordsDetailsController::class, 'index']);
+Route::post('/crd', [CriminalRecordsDetailsController::class, 'store']);
+Route::put('/crd/{id}', [CriminalRecordsDetailsController::class, 'update']);
+Route::delete('/crd/{id}', [CriminalRecordsDetailsController::class, 'destroy']);
+//Crime Offense
+Route::get('/co/{id}', [CrimeOffenseController::class, 'show']);
+Route::get('/co', [CrimeOffenseController::class, 'index']);
+Route::post('/co', [CrimeOffenseController::class, 'store']);
+Route::put('/co/{id}', [CrimeOffenseController::class, 'update']);
+Route::delete('/co/{id}', [CrimeOffenseController::class, 'destroy']);

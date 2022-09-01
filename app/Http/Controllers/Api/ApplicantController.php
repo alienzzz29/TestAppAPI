@@ -93,16 +93,20 @@ class ApplicantController extends Controller
             $applicant->last_name = $request->last_name;
         }
 
-        if(isset($request->contact_no)){
-            $applicant->contact_no = $request->contact_no;
-        }
-
         if(isset($request->date_of_birth)){
             $applicant->date_of_birth = $request->date_of_birth;
         }
 
         if(isset($request->place_of_birth)){
             $applicant->place_of_birth = $request->place_of_birth;
+        }
+
+        if(isset($request->sex)){
+            $applicant->sex = $request->sex;
+        }
+
+        if(isset($request->contact_no)){
+            $applicant->contact_no = $request->contact_no;
         }
 
         if(isset($request->civil_status)){
@@ -113,28 +117,8 @@ class ApplicantController extends Controller
             $applicant->height = $request->height;
         }
 
-        if(isset($request->sex)){
-            $applicant->sex = $request->sex;
-        }
-
         if(isset($request->nationality)){
             $applicant->nationality = $request->nationality;
-        }
-
-        if(isset($request->applicant_qr)){
-            $applicant->applicant_qr = $request->applicant_qr;
-        }
-
-        if(isset($request->applicant_img)){
-            $applicant->applicant_img = $request->applicant_img;
-        }
-
-        if(isset($request->applicant_sig)){
-            $applicant->applicant_sig = $request->applicant_sig;
-        }
-
-        if(isset($request->applicant_thumb)){
-            $applicant->applicant_thumb = $request->applicant_thumb;
         }
 
         if(isset($request->address_id)){

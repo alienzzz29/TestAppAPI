@@ -25,10 +25,6 @@ class CreateApplicantsTable extends Migration
             $table->string('height');
             $table->enum('sex',['male','female']);
             $table->string('nationality');
-            $table->string('applicant_qr')->nullable();
-            $table->string('applicant_img')->nullable();
-            $table->string('applicant_sig')->nullable();
-            $table->string('applicant_thumb')->nullable();
             $table->bigInteger('address_id')->unsigned();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps(); 

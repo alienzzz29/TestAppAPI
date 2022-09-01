@@ -22,10 +22,6 @@ class Applicant extends Model
         'height',
         'sex',
         'nationality',
-        'applicant_qr',
-        'applicant_img',
-        'applicant_sig',
-        'applicant_thumb',
         'address_id'
     ];
 
@@ -37,5 +33,10 @@ class Applicant extends Model
     public function address()
     {
         return $this->belongsTo(Address::class);
+    }
+
+    public function applicantDetails()
+    {
+        return $this->hasMany(ApplicantDetails::class);
     }
 }
