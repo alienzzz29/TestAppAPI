@@ -45,13 +45,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
 
 //User
-Route::middleware(['auth:sanctum' , 'verified'])->group(function () {
+// Route::middleware(['auth:sanctum' , 'verified'])->group(function () {
     Route::get('/users/{id}', [UserController::class, 'show']);
     Route::get('/users', [UserController::class, 'index']);
     Route::post('/users', [UserController::class, 'store']);
     Route::put('/users/{id}', [UserController::class, 'update']);
     Route::delete('/users/{id}', [UserController::class, 'destroy']);
-});
+// });
 
 // UserType
 Route::get('/usertypes/{id}', [UserTypeController::class, 'show']);
