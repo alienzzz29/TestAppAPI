@@ -17,7 +17,7 @@ class PoliceOfficerController extends Controller
     public function index()
     {
         //
-        return PoliceOfficer::all();
+        return PoliceOfficer::with('rank','position')->get();
     }
 
     /**
@@ -51,7 +51,7 @@ class PoliceOfficerController extends Controller
     public function show($id)
     {
         //
-        return PoliceOfficer::find($id);
+        return PoliceOfficer::with('rank','position')->find($id);
     }
 
     /**
