@@ -17,7 +17,7 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        return Payment::all();
+        return Payment::with('applicant','user')->get(); 
     }
 
     /**
@@ -51,7 +51,8 @@ class PaymentController extends Controller
     public function show($id)
     {
         //
-        return Payment::find($id);
+        // return Payment::find($id);
+        return Payment::with('applicant','user')->find($id);
     }
 
     /**
@@ -89,9 +90,9 @@ class PaymentController extends Controller
             $payment->payment = $request->payment;
         }
 
-        // if(isset($request->applicant_id)){
-        //     $payment->applicant_id = $request->applicant_id;
-        // }
+        if(isset($request->applicant_id)){
+            $payment->applicant_id = $request->applicant_id;
+        }
 
         if(isset($request->user_id)){
             $payment->user_id = $request->user_id;
