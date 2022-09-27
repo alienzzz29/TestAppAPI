@@ -17,7 +17,8 @@ class PoliceClearanceCertificateDetailsController extends Controller
     public function index()
     {
         //
-        return PoliceClearanceCertificateDetails::all();
+        // return PoliceClearanceCertificateDetails::all();
+        return PoliceClearanceCertificateDetails::with('pcc','applicant','purpose','ctc','policeOfficer','payment','oic','criminalRecord')->get();
     }
 
     /**
@@ -51,7 +52,8 @@ class PoliceClearanceCertificateDetailsController extends Controller
     public function show($id)
     {
         //
-        return PoliceClearanceCertificateDetails::find($id);
+        return PoliceClearanceCertificateDetails::with('pcc','applicant','purpose','ctc','policeOfficer','payment','oic','criminalRecord')->find($id);
+        // return PoliceOfficer::with('rank','position')->find($id);
     }
 
     /**
@@ -103,6 +105,9 @@ class PoliceClearanceCertificateDetailsController extends Controller
         }
         if(isset($request->oic_id)){
             $pccd->oic_id = $request->oic_id;
+        }
+        if(isset($request->cr_id)){
+            $pccd->cr_id = $request->cr_id;
         }
         if(isset($request->status)){
             $pccd->status = $request->status;

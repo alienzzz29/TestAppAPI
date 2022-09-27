@@ -17,7 +17,7 @@ class ApplicantController extends Controller
     public function index()
     {
         //
-        return Applicant::all();
+        return Applicant::with('address')->get();
     }
 
     /**
@@ -51,7 +51,7 @@ class ApplicantController extends Controller
     public function show($id)
     {
         //
-        return Applicant::find($id);
+        return Applicant::with('address')->find($id);
     }
 
     /**

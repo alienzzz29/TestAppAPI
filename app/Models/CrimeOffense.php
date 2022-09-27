@@ -15,8 +15,8 @@ class CrimeOffense extends Model
         'name'
     ];
     
-    public function crimeRecordsDetails()
+    public function criminalRecords()
     {
-        return $this->hasMany(CrimeRecordsDetails::class);
+        return $this->hasMany(CriminalRecords::class);
     }
 }

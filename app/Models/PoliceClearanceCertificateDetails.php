@@ -19,6 +19,7 @@ class PoliceClearanceCertificateDetails extends Model
         'police_id',
         'payment_id',
         'oic_id',
+        'cr_id',
         'status'
     ];
 
@@ -55,6 +56,11 @@ class PoliceClearanceCertificateDetails extends Model
     public function oic()
     {
         return $this->belongsTo(OIC::class);
+    }
+
+    public function criminalRecord()
+    {
+        return $this->belongsTo(CriminalRecords::class);
     }
 
 }

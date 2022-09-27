@@ -17,7 +17,7 @@ class CriminalRecordsController extends Controller
     public function index()
     {
         //
-        return CriminalRecords::all();
+        return CriminalRecords::with('crimeOffense')->get();
     }
 
     /**
@@ -51,7 +51,7 @@ class CriminalRecordsController extends Controller
     public function show($id)
     {
         //
-        return CriminalRecords::find($id);
+        return CriminalRecords::with('crimeOffense')->find($id);
     }
 
     /**
@@ -93,7 +93,25 @@ class CriminalRecordsController extends Controller
             $cr->last_name = $request->last_name;
         }
 
-       
+        if(isset($request->date_of_birth)){
+            $cr->date_of_birth = $request->date_of_birth;
+        }
+
+        if(isset($request->co_id)){
+            $cr->co_id = $request->co_id;
+        }
+
+        if(isset($request->criminal_case_no)){
+            $cr->criminal_case_no = $request->criminal_case_no;
+        }
+
+        if(isset($request->is_no)){
+            $cr->is_no = $request->is_no;
+        }
+
+        if(isset($request->cr_remarks)){
+            $cr->cr_remarks = $request->cr_remarks;
+        }
 
         try {
             //code...

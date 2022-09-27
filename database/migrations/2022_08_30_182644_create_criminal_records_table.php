@@ -19,6 +19,10 @@ class CreateCriminalRecordsTable extends Migration
             $table->string('middle_name');
             $table->string('last_name');
             $table->string('date_of_birth');
+            $table->bigInteger('co_id')->unsigned();
+            $table->string('criminal_case_no');
+            $table->string('is_no');
+            $table->string('cr_remarks');
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
         });

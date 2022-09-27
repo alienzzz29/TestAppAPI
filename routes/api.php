@@ -16,8 +16,6 @@ use App\Http\Controllers\Api\ApplicantController;
 use App\Http\Controllers\Api\ApplicantDetailsController;
 use App\Http\Controllers\Api\CrimeOffenseController;
 use App\Http\Controllers\Api\CriminalRecordsController;
-use App\Http\Controllers\Api\CriminalRecordsDetailsController;
-use App\Http\Controllers\Api\FindingsController;
 use App\Http\Controllers\Api\OICController;
 use App\Http\Controllers\Api\PoliceClearanceCertificateDetailsController;
 use App\Http\Controllers\Api\PoliceOfficerController;
@@ -119,12 +117,12 @@ Route::get('/applicants', [ApplicantController::class, 'index']);
 Route::post('/applicants', [ApplicantController::class, 'store']);
 Route::put('/applicants/{id}', [ApplicantController::class, 'update']);
 Route::delete('/applicants/{id}', [ApplicantController::class, 'destroy']);
-//Findings
-Route::get('/findings/{id}', [FindingsController::class, 'show']);
-Route::get('/findings', [FindingsController::class, 'index']);
-Route::post('/findings', [FindingsController::class, 'store']);
-Route::put('/findings/{id}', [FindingsController::class, 'update']);
-Route::delete('/findings/{id}', [FindingsController::class, 'destroy']);
+// //Findings
+// Route::get('/findings/{id}', [FindingsController::class, 'show']);
+// Route::get('/findings', [FindingsController::class, 'index']);
+// Route::post('/findings', [FindingsController::class, 'store']);
+// Route::put('/findings/{id}', [FindingsController::class, 'update']);
+// Route::delete('/findings/{id}', [FindingsController::class, 'destroy']);
 //Police Clearance Certificate Details
 Route::get('/pccd/{id}', [PoliceClearanceCertificateDetailsController::class, 'show']);
 Route::get('/pccd', [PoliceClearanceCertificateDetailsController::class, 'index']);
@@ -155,12 +153,12 @@ Route::get('/applicant-details', [ApplicantDetailsController::class, 'index']);
 Route::post('/applicant-details', [ApplicantDetailsController::class, 'store']);
 Route::put('/applicant-details/{id}', [ApplicantDetailsController::class, 'update']);
 Route::delete('/applicant-details/{id}', [ApplicantDetailsController::class, 'destroy']);
-//Criminal Records Details
-Route::get('/crd/{id}', [CriminalRecordsDetailsController::class, 'show']);
-Route::get('/crd', [CriminalRecordsDetailsController::class, 'index']);
-Route::post('/crd', [CriminalRecordsDetailsController::class, 'store']);
-Route::put('/crd/{id}', [CriminalRecordsDetailsController::class, 'update']);
-Route::delete('/crd/{id}', [CriminalRecordsDetailsController::class, 'destroy']);
+// //Criminal Records Details
+// Route::get('/crd/{id}', [CriminalRecordsDetailsController::class, 'show']);
+// Route::get('/crd', [CriminalRecordsDetailsController::class, 'index']);
+// Route::post('/crd', [CriminalRecordsDetailsController::class, 'store']);
+// Route::put('/crd/{id}', [CriminalRecordsDetailsController::class, 'update']);
+// Route::delete('/crd/{id}', [CriminalRecordsDetailsController::class, 'destroy']);
 //Crime Offense
 Route::get('/co/{id}', [CrimeOffenseController::class, 'show']);
 Route::get('/co', [CrimeOffenseController::class, 'index']);
