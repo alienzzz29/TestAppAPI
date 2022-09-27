@@ -121,10 +121,6 @@ class ApplicantController extends Controller
             $applicant->nationality = $request->nationality;
         }
 
-        if(isset($request->applicant_status)){
-            $applicant->applicant_status = $request->applicant_status;
-        }
-
         if(isset($request->address_id)){
             $applicant->address_id = $request->address_id;
         }

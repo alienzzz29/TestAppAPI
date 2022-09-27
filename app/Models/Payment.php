@@ -14,7 +14,6 @@ class Payment extends Model
     protected $fillable = [
         'or_number',
         'payment',
-        'applicant_id',
         'user_id'
     ];
 
@@ -26,10 +25,5 @@ class Payment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function applicant()
-    {
-        return $this->belongsTo(Applicant::class);
     }
 }

@@ -25,7 +25,6 @@ class CreateApplicantsTable extends Migration
             $table->string('height');
             $table->enum('sex',['male','female']);
             $table->string('nationality');
-            $table->enum('applicant_status',['to pay','to validate','under investigation', 'to print',  'done']);
             $table->bigInteger('address_id')->unsigned();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps(); 

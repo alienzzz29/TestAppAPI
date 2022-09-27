@@ -22,7 +22,7 @@ class CreatePoliceClearanceCertificateDetailsTable extends Migration
             $table->bigInteger('police_id')->unsigned();
             $table->bigInteger('oic_id')->unsigned();
             $table->bigInteger('payment_id')->unsigned();
-            $table->enum('status',['pending payment','pending confirmation','pending for printing','done','under investigation']);
+            $table->enum('status',['pending payment','pending confirmation','under investigation','pending for printing','done']);
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();
         });

@@ -16,10 +16,6 @@ class PoliceClearanceCertificate extends Model
         'issued_date'
     ];
 
-    // public function pccDetails()
-    // {
-    //     return $this->hasMany(PoliceClearanceCertificateDetails::class);
-    // }
 
     public function pccds()
     {
